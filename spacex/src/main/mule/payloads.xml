@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="payloadsAll_GET" doc:id="e14f3124-0989-4796-a727-576f95f36f40" >
+		<ee:transform doc:name="Transform Message" doc:id="6886a8e2-accd-4b2c-99ff-7b72893e069b" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="GET" doc:name="Request" doc:id="4bc28f18-e318-43f8-8ec8-89a3adc004a6" config-ref="HTTP_Request_spaceX" path="${payloads.endpoint}" />
+	</flow>
+	<flow name="payloadsOne_GET" doc:id="cd015a92-0804-490a-8527-d7745ff6e45a" >
+		<set-variable value="#[attributes.uriParams.'id']" doc:name="Set Variable" doc:id="ce3a9e1e-12ea-4798-b7ec-50c1bbddc65c" variableName="payloadsID" />
+		<ee:transform doc:name="Transform Message" doc:id="ab028175-d3a5-4c9e-b418-a6955d703cc3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="GET" doc:name="Request" doc:id="08005c17-af72-4ac5-9f60-d95ffe261624" config-ref="HTTP_Request_spaceX" path="#['payloads' ++ '/' ++ vars.payloadsID]" />
+	</flow>
+</mule>

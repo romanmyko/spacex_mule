@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="capsulesAll_GET" doc:id="7c7e0208-11b3-44b0-9676-3bc26a8aea05">
+		<ee:transform doc:name="Transform Message" doc:id="ed1f3ca7-fffa-4423-a243-a8e18815693d">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="GET" doc:name="Request" doc:id="b129566b-1ffc-46aa-9f56-df213cec0248" config-ref="HTTP_Request_spaceX" path="${capsules.endpoint}" />
+	</flow>
+	<flow name="capsulesOne_GET" doc:id="cf64e537-f4db-4917-8c1d-950933d0c889" >
+		<set-variable value="#[attributes.uriParams.'id']" doc:name="Set Variable" doc:id="587ca2bb-a771-4b4b-83ac-c427c7c69d0b" variableName="capsulesID" />
+		<ee:transform doc:name="Transform Message" doc:id="e9eecbf7-2eea-43d0-8bfa-765436a1ce87" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="GET" doc:name="Request" doc:id="f7be08a6-376e-4159-80a8-67ac3adb0a3b" config-ref="HTTP_Request_spaceX" path="#['capsules' ++ '/' ++ vars.capsulesID]" />
+	</flow>
+</mule>

@@ -1,0 +1,42 @@
+%dw 2.0
+
+type auto_e14f3124_0989_4796_a727_576f95f36f40_Output_Payload = Array<{  semi_major_axis_km: Number,   nationalities: Array<String>, 
+  epoch: String, 
+  dragon: {
+    water_landing: Boolean, 
+    mass_returned_lbs: Number, 
+    capsule: String, 
+    flight_time_sec: Number, 
+    land_landing: Boolean, 
+    manifest: String, 
+    mass_returned_kg: Number, 
+    _?: Any
+  }, 
+  "type": String, 
+  mass_kg: Number, 
+  customers: Array<String>, 
+  orbit: String, 
+  id: String, 
+  longitude: Number, 
+  periapsis_km: Number, 
+  mean_anomaly: Number, 
+  manufacturers: Array<String>, 
+  inclination_deg: Number, 
+  regime: String, 
+  arg_of_pericenter: Number, 
+  eccentricity: Number, 
+  apoapsis_km: Number, 
+  norad_ids: Array<Number>, 
+  mass_lbs: Number, 
+  raan: Number, 
+  launch: String, 
+  lifespan_years: Number, 
+  reference_system: String, 
+  name: String, 
+  period_min: Number, 
+  mean_motion: Number, 
+  reused: Boolean, 
+  _?: Any
+} {"description": "Defines the fields in PayloadsAll Datatype",
+"label": "PayloadsAll"}>
+

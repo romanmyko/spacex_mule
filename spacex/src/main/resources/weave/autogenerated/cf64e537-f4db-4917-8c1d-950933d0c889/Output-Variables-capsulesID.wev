@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_cf64e537_f4db_4917_8c1d_950933d0c889_Output_Variables_capsulesID = Any
+

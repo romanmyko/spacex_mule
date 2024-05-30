@@ -1,0 +1,16 @@
+%dw 2.0
+
+type auto_cf64e537_f4db_4917_8c1d_950933d0c889_Output_Payload = {
+  water_landings: Number, 
+  land_landings: Number, 
+  serial: String, 
+  last_update: String, 
+  id: String, 
+  reuse_count: Number, 
+  "type": "Dragon 1.0" | "Dragon 1.1" | "Dragon 2.0", 
+  launches: Array<String>, 
+  status: "destroyed" | "active" | "retired" | "unknown", 
+  _?: Any
+} {"description": "Defines the fields in CapsuleOne Datatype",
+"label": "CapsulesOne"}
+

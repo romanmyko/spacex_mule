@@ -1,0 +1,17 @@
+http:
+  host: "0.0.0.0"
+  port: "8081"
+  path: "api/*"
+  base:  ""
+
+request_spaceX:
+      protocol: "HTTPS"
+      host: "api.spacexdata.com"
+      port: ""
+      base: "/v4"
+      
+capsules:
+  endpoint: "/capsules"
+
+payloads:    
+  endpoint: "/payloads"
